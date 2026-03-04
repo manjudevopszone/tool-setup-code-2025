@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-infra-2025"
+    bucket = "terraform-data-2025}"
     key    = "vault-secrets/state"
     region = "us-east-1"
   }
