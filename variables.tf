@@ -16,7 +16,6 @@ variable "github-runner" {
   default = {
     github-runner={
       instance_type = "t3.small"
-      port= 443
       zone_id = "Z08819072319VLT801BHA"
       vpc_security_group_ids = ["sg-043ff9d2da877c20a"]
     }
