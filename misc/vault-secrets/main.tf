@@ -39,13 +39,19 @@ resource "vault_mount" "expense-dev" {
   options     = { version = "2" }
   description = "expense dev secrets"
 }
-
 resource "vault_mount" "github-runner" {
-  path = "github-runner"
-  type = "kv"
-  options = {version = "2" }
-  description = "github runner token secrets"
+  path        = "github-runner"
+  type        = "kv"
+  options     = { version = "2" }
+  description = "github runner token"
 }
+
+# resource "vault_mount" "github-runner" {
+#   path = "github-runner"
+#   type = "kv"
+#   options = {version = "2" }
+#   description = "github runner token secrets"
+# }
 
 resource "vault_generic_secret" "infra_access" {
   path = "${vault_mount.infra_access.path}/ssh"
