@@ -20,13 +20,9 @@
     group: github
     remote_src: yes
 
-- name: debug module read the password
-  ansible.builtin.debug:
-    msg: --token "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token={{ vault_token }} url=http://vault.devopsmanju.shop:8200') }}"
-
 - name: Read token from vault
   set_fact:
-    github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token={{ vault_token }} url=http://vault.devopsmanju.shop:8200') }}"
+    github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200').token }}"
 
 - name: Show token
   debug:
