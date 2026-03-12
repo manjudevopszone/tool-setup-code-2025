@@ -1,2 +1,14 @@
 - name: Setup prompt
   ansible.builtin.shell: set-prompt {{ tool_name }}
+
+- name: Create github-runner user
+  ansible.builtin.user:
+    name: github
+
+- name: make github action folder
+  ansible.builtin.file:
+    path: /actions-runner
+    owner: github
+    group: github
+    state: directory
+
