@@ -38,7 +38,6 @@
       Authorization: "token {{ github_pat }}"
       Accept: application/vnd.github+json
   register: runner_token
-  no_log: true
 
 - name: Configure GitHub runner
   shell: ./config.sh --url https://github.com/manjudevopszone/tool-setup-code-2025 --token {{ runner_token.json.token }}
