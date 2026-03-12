@@ -10,5 +10,5 @@
     path: /actions-runner
     owner: github
     group: github
-    state: directory
+
 
