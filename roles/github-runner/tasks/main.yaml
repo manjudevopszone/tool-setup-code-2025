@@ -20,12 +20,27 @@
     group: github
     remote_src: yes
 
-- name: Read token from vault
-  set_fact:
-    github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200').token }}"
+#- name: Read token from vault
+#  set_fact:
+#    github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200').token }}"
+#
+#- name: Create runner and start the configuration
+#  ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}
+#  args:
+#    chdir: /actions-runner
+#  become_user: github
 
-- name: Create runner and start the configuration
-  ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}
+- name: Get GitHub runner token
+  uri:
+    url: https://api.github.com/repos/manjudevopszone/actions/runners/registration-token
+    method: POST
+    headers:
+      Authorization: "token {{ github_pat }}"
+      Accept: application/vnd.github+json
+  register: runner_token
+
+- name: Configure runner
+  shell: ./config.sh --url https://github.com/manjudevopszone --token {{ runner_token.json.token }}
   args:
     chdir: /actions-runner
   become_user: github
