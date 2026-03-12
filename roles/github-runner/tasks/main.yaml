@@ -26,4 +26,4 @@
 
 - name: Create runner and start the configuration
   ansible.builtin.debug:
-    msg: "./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}"
+    msg: ./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}
