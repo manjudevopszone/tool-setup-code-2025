@@ -19,3 +19,6 @@
     owner: github
     group: github
     remote_src: yes
+
+- name: Create the runner and start configure github
+  ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token A6ZG75Y2HIKZDRUYGA2NJVTJWLQCG
