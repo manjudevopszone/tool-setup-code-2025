@@ -35,7 +35,7 @@
   args:
     chdir:  /actions-runner
   become_user: github
-  when: not runner_stat.stat.exists
+#  when: not runner_stat.stat.exists
 
 #- name: Get GitHub runner token
 #  uri:
