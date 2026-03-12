@@ -26,3 +26,6 @@
 
 - name: Create runner and start the configuration
   ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}
+  args:
+    chdir: /actions-runner
+  become_user: github
