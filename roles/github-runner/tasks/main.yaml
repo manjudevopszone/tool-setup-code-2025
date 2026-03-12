@@ -25,4 +25,5 @@
     github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200').token }}"
 
 - name: Create runner and start the configuration
-  ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}
+  ansible.builtin.shell:
+    msg: "./config.sh --url https://github.com/manjudevopszone --token {{ github_token }}"
