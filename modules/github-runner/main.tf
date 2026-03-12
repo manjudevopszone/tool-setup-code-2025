@@ -13,7 +13,7 @@ resource "aws_route53_record" "records" {
   name    = "${var.tag_name}-internal"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.tool.private_ip]
+  records = [aws_instance.tool.public_ip]
 }
 
 
