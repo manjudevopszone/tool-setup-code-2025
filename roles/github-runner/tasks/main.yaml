@@ -39,7 +39,7 @@
 - name: run github action runner
   ansible.builtin.shell: ./run.sh
   args:
-    chdir: /action-runner
+    chdir: /actions-runner
   become_user: github
 
 #- name: Configure github runner
