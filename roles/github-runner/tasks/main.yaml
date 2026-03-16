@@ -36,11 +36,11 @@
   become_user: github
   when: not runner_stat.stat.exists
 
-- name: run github action runner
-  ansible.builtin.shell: ./run.sh
-  args:
-    chdir: /actions-runner
-  become_user: github
+#- name: run github action runner
+#  ansible.builtin.shell: ./run.sh
+#  args:
+#    chdir: /actions-runner
+#  become_user: github
 
 
 #- name: Configure github runner
