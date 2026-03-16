@@ -41,6 +41,13 @@
     src: github-runner.service
     dest: /etc/systemd/system/github-runner/service
 
+- name: Start github-runner service
+  ansible.builtin.systemd:
+    name: github-runner
+    state: started
+    enabled: yes
+    daemon-reload: yes
+
 
 #- name: Configure github runner
 #  ansible.builtin.shell: ./config.sh --url https://github.com/manjudevopszone --token {{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path:RUNNER_TOKEN token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200') }} --unattended
