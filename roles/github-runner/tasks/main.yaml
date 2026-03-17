@@ -53,6 +53,12 @@
     src: hashicorp.repo
     dest: /etc/yum.repos.d/hashicorp.repo
 
+- name: Install terraform
+  ansible.builtin.dnf:
+    name: terraform
+    state: installed
+
+
 
 
 
