@@ -19,13 +19,17 @@ module "vault" {
 
 module "github-runner" {
   for_each = var.github-runner
-  source = "./modules/github-runner"
+  source   = "./modules/github-runner"
 
-  ami_id        = var.ami_id
-  instance_type = each.value["instance_type"]
-  port          = each.value["port"]
-  tag_name      = each.key
-  zone_id       = each.value["zone_id"]
+  ami_id                 = var.ami_id
+  instance_type          = each.value["instance_type"]
+  port                   = each.value["port"]
+  tag_name               = each.key
+  zone_id                = each.value["zone_id"]
   vpc_security_group_ids = each.value["vpc_security_group_ids"]
+  iam_policy = {
+    Action   = []
+    Resource = []
+  }
 }
 

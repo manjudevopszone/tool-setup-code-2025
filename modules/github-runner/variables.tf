@@ -5,3 +5,4 @@ variable "tag_name" {}
 variable "port" {}
 
 variable "vpc_security_group_ids" {}
+variable "iam_policy" {}
