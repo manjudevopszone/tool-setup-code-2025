@@ -20,7 +20,7 @@ variable "github-runner" {
       vpc_security_group_ids = ["sg-043ff9d2da877c20a"]
       port          = 443
       iam_policy = {
-        Action   = []
+        Action   = ["*"]
         Resource = []
       }
     }
