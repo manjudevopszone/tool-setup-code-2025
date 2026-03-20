@@ -71,6 +71,14 @@
     name: kubectl
     state: installed
 
+- name: Install helm
+  ansible.builtin.shell: |
+    curl -O -L https://get.helm.sh/helm-v4.1.3-linux-amd64.tar.gz
+    tar -xf helm-v4.1.3-linux-amd64.tar.gz
+    mv linux-amd64/helm /bin/helm
+  args:
+    chdir: /tmp
+
 
 
 
