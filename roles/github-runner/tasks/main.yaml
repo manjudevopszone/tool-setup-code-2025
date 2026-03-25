@@ -79,7 +79,22 @@
   args:
     chdir: /tmp
 
+- name: Get docker repo
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/rhel/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
 
+- name: Install docker
+  ansible.builtin.dnf:
+    name: docker-ce
+    state: installed
+
+- name: start docker
+  ansible.builtin.systemd:
+    name: docker-ce
+    state: started
+    enabled: yes
+    daemon-reload: yes
 
 
 
