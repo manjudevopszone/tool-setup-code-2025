@@ -5,7 +5,7 @@ variable "ami_id" {
 variable "tools" {
   default = {
     vault={
-      instance_type = "t3.small"
+      instance_type = "t3.micro"
       port = 8200
       zone_id = "Z08819072319VLT801BHA"
     }
@@ -15,7 +15,7 @@ variable "tools" {
 variable "github-runner" {
   default = {
     github-runner = {
-      instance_type = "t3.small"
+      instance_type = "t3.micro"
       zone_id       = "Z08819072319VLT801BHA"
       vpc_security_group_ids = ["sg-043ff9d2da877c20a"]
       port          = 443
