@@ -30,14 +30,13 @@
 
     - name: Read token from vault
       set_fact:
-        github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path:token token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200') }} "
+        github_token: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=github-runner/data/path:token token=' ~ vault_token ~ ' url=http://vault.devopsmanju.shop:8200') }} --unattended"
 
     - name: Create runner and start the configuration
       ansible.builtin.shell: >
         ./config.sh
         --url https://github.com/manjudevopszone/tool-setup-code-2025
         --token {{ github_token }}
-        --unattended
       args:
         chdir: /actions-runner
       become_user: github
