@@ -18,6 +18,7 @@ resource "aws_route53_record" "records" {
 }
 
 
+
 # resource "aws_vpc_security_group_ingress_rule" "allow_app_port" {
 #   security_group_id = var.vpc_security_group_ids
 #   cidr_ipv4         = "0.0.0.0/0"
