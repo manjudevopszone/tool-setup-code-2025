@@ -42,10 +42,10 @@
       become_user: github
       when: not runner_stat.stat.exists
 
-    - name: Copy service file
-      ansible.builtin.template:
-        src: github-runner.service
-        dest: /etc/systemd/system/github-runner.service
+- name: Copy service file
+  ansible.builtin.template:
+    src: github-runner.service
+    dest: /etc/systemd/system/github-runner.service
 
 - name: Start github-runner service
   ansible.builtin.systemd:
