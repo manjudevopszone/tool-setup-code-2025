@@ -4,6 +4,16 @@ resource "aws_instance" "tool" {
   vpc_security_group_ids = var.vpc_security_group_ids
   iam_instance_profile   = aws_iam_instance_profile.main.name
 
+  instance_market_options {
+    market_type = "spot"
+
+    spot_options {
+      instance_interruption_behavior = "stop"
+      spot_instance_type = "persistent"
+
+    }
+  }
+
   tags = {
     Name = var.tag_name
   }
