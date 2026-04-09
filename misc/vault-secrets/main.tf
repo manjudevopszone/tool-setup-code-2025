@@ -193,7 +193,7 @@ resource "vault_generic_secret" "github-runner" {
 
   data_json = <<EOF
 {
- "token": "A6ZG75553QBEWWR5PSFDH2LJXFU26"
+ "token": "A6ZG75ZHB53J7DDN2VHVF5DJ25RYE"
 }
 EOF
 }
